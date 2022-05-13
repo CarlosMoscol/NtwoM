@@ -55,7 +55,7 @@ public class State_Board {
     public int movePieceFromTo(int srcIndex, int destIndex, Token player) throws GameException {
         if(positionHasPieceOfPlayer(srcIndex, player)) {
             if(positionIsAvailable(destIndex)) {
-                //System.out.println("Number of pieces: "+gameBoard.getNumberOfPiecesOfPlayer(player));
+                System.out.println("Number of pieces: "+gameBoard.getNumberOfPiecesOfPlayer(player));
                 if(validMove(srcIndex, destIndex) || (gameBoard.getNumberOfPiecesOfPlayer(player) == State_Board.MIN_NUM_PIECES + 1)) {
                     gameBoard.getPosition(srcIndex).setAsUnoccupied();
                     gameBoard.getPosition(destIndex).setAsOccupied(player);

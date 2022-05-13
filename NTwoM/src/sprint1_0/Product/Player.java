@@ -70,4 +70,5 @@ public abstract class Player {
     }
 
     public abstract boolean isAI();
+    
 }

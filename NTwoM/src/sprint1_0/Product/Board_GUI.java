@@ -203,7 +203,7 @@ public class Board_GUI extends JPanel{
             case PLAYER_2:
                 return "O";
             case NO_PLAYER:
-                return "*";
+                return "#";
             default:
                 return null;
         }
