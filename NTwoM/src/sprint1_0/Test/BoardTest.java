@@ -1,18 +1,23 @@
 package sprint1_0.Test;
-/*
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
-import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.jupiter.api.Test;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
 import sprint1_0.Product.Board_GUI;
 import sprint1_0.Product.GameException;
 import sprint1_0.Product.Position;
 import sprint1_0.Product.Token;
-class Board__Test {
+
+public class BoardTest {
+
 	@Test
 	public void testConstructor() {
 		Board_GUI board = new Board_GUI();
@@ -59,4 +64,3 @@ class Board__Test {
 	}
 
 }
-*/
