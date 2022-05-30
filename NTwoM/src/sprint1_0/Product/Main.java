@@ -34,8 +34,8 @@ public class Main {
 		String userInput = "";
 		boolean bothCPU = true;
 		Player p1 = null, p2=null;
-		p1 = new HumanPlayer("Carlitos", Token.PLAYER_1, State_Board.NUM_PIECES_PER_PLAYER);
-		p2 = new HumanPlayer("Kencito", Token.PLAYER_2, State_Board.NUM_PIECES_PER_PLAYER);
+		p1 = new HumanPlayer("Carlitos(X)", Token.PLAYER_1, State_Board.NUM_PIECES_PER_PLAYER);
+		p2 = new HumanPlayer("Kencito(O)", Token.PLAYER_2, State_Board.NUM_PIECES_PER_PLAYER);
 		System.out.println ("Tablero v0.1 NTwoM: (P1 y P2 predefinidos)");
 		
 		
@@ -66,7 +66,7 @@ public class Main {
 						long startTime = System.nanoTime();
 						boardIndex = ((BotPlayer)p).getIndexToPlacePiece(game.gameBoard);
 						long endTime = System.nanoTime();
-						Log.warn("Number of moves: "+((BotPlayer)p).numberOfMoves);
+						Log.warn("Numero de movimientos: "+((BotPlayer)p).numberOfMoves);
 						Log.warn("Moves that removed: "+((BotPlayer)p).movesThatRemove);
 						Log.warn("It took: "+ (endTime - startTime)/1000000+" miliseconds");
 
@@ -89,10 +89,10 @@ public class Main {
 							while(true) {
 								if(p.isAI()){
 									boardIndex = ((BotPlayer)p).getIndexToRemovePieceOfOpponent(game.gameBoard);
-									System.out.println(p.getName()+" removes opponent piece on "+boardIndex);
+									System.out.println(p.getName()+" remover la pieza del openente "+boardIndex);
 								} else {
 									game.printGameBoard();
-									System.out.println("You made a mill. You can remove a piece of your oponent: ");
+									System.out.println("Hiciste un molino !!!. Puedes quitar una pieza de tu oponente: ");
 									userInput = input.readLine();
 									userInput = userInput.toUpperCase();
 									boardIndex = Integer.parseInt(userInput);
@@ -135,7 +135,7 @@ public class Main {
 						System.out.println(p.getName()+" moved piece from "+srcIndex+" to "+destIndex);
 					} else {
 						game.printGameBoard();
-						System.out.println(p.getName()+" it's your turn. Input PIECE_POS:PIECE_DEST");
+						System.out.println(p.getName()+" es tu turno. Ingresa POS_INI:POS_DEST \n");
 						userInput = input.readLine();
 						userInput = userInput.toUpperCase();
 						String[] positions = userInput.split(":");
@@ -157,7 +157,7 @@ public class Main {
 									boardIndex = move.removePieceOnIndex;
 									System.out.println(p.getName()+" removes opponent piece on "+boardIndex);
 								} else {
-									System.out.println("You made a mill! You can remove a piece of your oponent: ");
+									System.out.println("Hiciste un molino !!!. Puedes quitar una pieza de tu oponente: ");
 									userInput = input.readLine();
 									userInput = userInput.toUpperCase();
 									boardIndex = Integer.parseInt(userInput);
