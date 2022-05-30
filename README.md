@@ -1,4 +1,4 @@
 # Development team name: KENCALU Company
-## Prpject: NTwoM
+## Prpoect: NTwoM
 
  CC 3S2 training Project
