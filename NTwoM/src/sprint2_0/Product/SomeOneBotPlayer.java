@@ -35,7 +35,53 @@ public class SomeOneBotPlayer extends BotPlayer{
 		}
 	}	
 	
-	
+	@Override
+	public Move getPieceMove(Board_GUI gameBoard, int gamePhase) {
+		while(true) {
+			try {
+				int srcIndex = rand.nextInt(Board_GUI.NUM_POSITIONS_OF_BOARD);
+				Position position = gameBoard.getPosition(srcIndex);
+				if(position.getPlayerOccupyingIt() == this.playerToken) {
+					int[] adjacents = position.getAdjacentPositionsIndexes();
+					for(int i = 0; i < adjacents.length; i++) {
+						Position adjacentPos = gameBoard.getPosition(adjacents[i]);
+						
+						if(!adjacentPos.isOccupied()) {
+							adjacentPos.setAsOccupied(playerToken);
+							position.setAsUnoccupied();
+							
+							Move move = new Move(srcIndex, adjacents[i], -1, Move.MOVING);
+
+							for(int p = 0; p < Board_GUI.NUM_MILL_COMBINATIONS; p++) { //comprobar si la pieza hecha un molino
+								int playerPieces = 0; 
+								boolean selectedPiece = false;
+								Position[] row = gameBoard.getMillCombination(p);
+
+								for(int j = 0; j < Board_GUI.NUM_POSITIONS_IN_EACH_MILL; j++) {
+
+									if(row[j].getPlayerOccupyingIt() == playerToken) {
+										playerPieces++;
+									}
+									if(row[j].getPositionIndex() == move.destIndex) {
+										selectedPiece = true;
+									}
+								}
+								if(playerPieces==3 && selectedPiece) { // hizo un molino - seleccione la pieza para eliminar
+									move.removePieceOnIndex = getIndexToRemovePieceOfOpponent(gameBoard);
+									break;
+								}
+							}
+							position.setAsOccupied(playerToken);
+							adjacentPos.setAsUnoccupied();
+							return move;
+						}
+					}
+				}
+			} catch (GameException e) {
+				e.printStackTrace();
+			}
+		}
+	}
 
 }
 
