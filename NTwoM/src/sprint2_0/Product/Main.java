@@ -41,7 +41,7 @@ public class Main {
 		System.out.println ("Tablero v0.1 NTwoM: (P1 y P2 predefinidos)");
 		*/
 		
-		System.out.println("Player 1: (H)UMAN or (C)PU?");
+		System.out.println("Jugador 1: (H)UMAN or (C)PU?");
 		String userInput = input.readLine();
 		userInput = userInput.toUpperCase();
 		Player p1 = null, p2 = null;
@@ -54,11 +54,11 @@ public class Main {
 		} else if(userInput.compareTo("CPU") == 0 || userInput.compareTo("C") == 0) {
 			p1 = new SomeOneBotPlayer(Token.PLAYER_1,State_Board.NUM_PIECES_PER_PLAYER);
 		} else {
-			System.out.println("Command unknown");
+			System.out.println("Comando desconocido");
 			System.exit(-1);
 		}
 		
-		System.out.println("Player 2: (H)UMAN or (C)PU?");
+		System.out.println("Jugador 2: (H)UMAN or (C)PU?");
 		userInput = input.readLine();
 		userInput = userInput.toUpperCase();
 		
@@ -68,7 +68,7 @@ public class Main {
 		} else if(userInput.compareTo("CPU") == 0 || userInput.compareTo("C") == 0) {
 			p2 = new SomeOneBotPlayer(Token.PLAYER_2,State_Board.NUM_PIECES_PER_PLAYER);
 		} else {
-			System.out.println("Command unknown");
+			System.out.println("Comando desconocido");
 			System.exit(-1);
 		}
 		
@@ -86,7 +86,7 @@ public class Main {
 		long gamesStart = System.nanoTime();
 		while(numberGames > 0) {
 			if((numberGames-- % 50) == 0){
-				System.out.println("Games left: "+numberGames);
+				System.out.println("Juegos restantes: "+numberGames);
 			}
 			
 			while(game.getCurrentGamePhase() == State_Board.PLACING_PHASE) {
@@ -100,8 +100,8 @@ public class Main {
 						boardIndex = ((BotPlayer)p).getIndexToPlacePiece(game.gameBoard);
 						long endTime = System.nanoTime();
 						Log.warn("Numero de movimientos: "+((BotPlayer)p).numberOfMoves);
-						Log.warn("Moves that removed: "+((BotPlayer)p).movesThatRemove);
-						Log.warn("It took: "+ (endTime - startTime)/1000000+" miliseconds");
+						Log.warn("Piezas removidas: "+((BotPlayer)p).movesThatRemove);
+						Log.warn("La partida demoro: "+ (endTime - startTime)/1000000+" milisegundos");
 
 					} else {
 						game.printGameBoard();
@@ -133,23 +133,23 @@ public class Main {
 								if(game.removePiece(boardIndex, opponentPlayer)) {
 									break;
 								} else {
-									System.out.println("You can't remove a piece from there. Try again");
+									System.out.println("No se puede colocar la pieza alli. Intentar otra vez");
 								}
 							}
 						}
 						((LanGame)game).updateCurrentTurnPlayer();
 						break;
 					} else {
-						System.out.println("You can't place a piece there. Try again");
+						System.out.println("No se puede colocar la pieza alli. Intentar otra vez");
 					}
 				}
 			}
 
-			System.out.println("The pieces are all placed. Starting the fun part... ");
+			System.out.println("Todas lapiezas estan colocadas en el tablero. Comenzando la parte divertida... ");
 			while(!game.isTheGameOver() && numberMoves < Main.MAX_MOVES) {
 
 				while(true) {
-					System.out.println("Number of moves made: "+numberMoves);
+					System.out.println("Numero de movimientos realizados: "+numberMoves);
 					Player p = ((LanGame)game).getCurrentTurnPlayer();
 					int srcIndex, destIndex;
 					Move move = null;
@@ -160,9 +160,9 @@ public class Main {
 						long endTime = System.nanoTime();
 						game.printGameBoard();
 
-						System.out.println("Number of moves: "+((BotPlayer)p).numberOfMoves);
+						System.out.println("Numero de movimiento: "+((BotPlayer)p).numberOfMoves);
 											System.out.println("Moves that removed: "+((BotPlayer)p).movesThatRemove);
-						System.out.println("It took: "+ (endTime - startTime)/1000000+" miliseconds");
+						System.out.println("It took: "+ (endTime - startTime)/1000000+" milisegundos");
 						srcIndex = move.srcIndex;
 						destIndex = move.destIndex;
 						System.out.println(p.getName()+" mover pieza desde "+srcIndex+" a "+destIndex);
@@ -188,7 +188,7 @@ public class Main {
 							while(true) {
 								if(p.isAI()){
 									boardIndex = move.removePieceOnIndex;
-									System.out.println(p.getName()+" removes opponent piece on "+boardIndex);
+									System.out.println(p.getName()+" quita la pieza del oponente en "+boardIndex);
 								} else {
 									System.out.println("Hiciste un molino !!!. Puedes quitar una pieza de tu oponente: ");
 									userInput = input.readLine();
@@ -198,7 +198,7 @@ public class Main {
 								if(game.removePiece(boardIndex, opponentPlayerToken)) {
 									break;
 								} else {
-									System.out.println("It couldn't be done! Try again.");
+									System.out.println("No se pudo hacer! Intentar otra vez.");
 								}
 							}
 						}
@@ -210,16 +210,16 @@ public class Main {
 						}
 						((LanGame)game).updateCurrentTurnPlayer();
 					} else {
-						System.out.println("Invalid move. Error code: "+result);
+						System.out.println("Movimiento invalido. Codigo de error: "+result);
 					}
 				}
 			}
 
 			if(!game.isTheGameOver()) {
-				System.out.println("Draw!");
+				System.out.println("Empate!");
 				draws++;
 			} else {
-				System.out.println("Game over. Player "+((LanGame)game).getCurrentTurnPlayer().getPlayerToken()+" Won");
+				System.out.println("Juego terminado. Jugador "+((LanGame)game).getCurrentTurnPlayer().getPlayerToken()+" Gano");
 				if(((LanGame)game).getCurrentTurnPlayer().getPlayerToken() == Token.PLAYER_1) {
 					p1Wins++;
 				} else {
@@ -233,11 +233,11 @@ public class Main {
 			((LanGame)game).setPlayers(p1, p2);
 		}
 		long gamesEnd = System.nanoTime();
-		System.out.println(fixedNumberGames+" Juegos completados en: "+ (gamesEnd - gamesStart)/1000000000+" seconds");
-		System.out.println("Average number of ply: "+(totalMoves/fixedNumberGames));
-		System.out.println("Draws: "+draws+" ("+((float)draws/fixedNumberGames)*100+"%)");
-		System.out.println("P1 Wins: "+p1Wins+" ("+((float)p1Wins/fixedNumberGames)*100+"%)");
-		System.out.println("P2 Wins: "+p2Wins+" ("+((float)p2Wins/fixedNumberGames)*100+"%)");
+		System.out.println(fixedNumberGames+" Juegos completados en: "+ (gamesEnd - gamesStart)/1000000000+" segundos");
+		System.out.println("Numero promedio de movimientos: "+(totalMoves/fixedNumberGames));
+		System.out.println("Empates: "+draws+" ("+((float)draws/fixedNumberGames)*100+"%)");
+		System.out.println("J1 Gana: "+p1Wins+" ("+((float)p1Wins/fixedNumberGames)*100+"%)");
+		System.out.println("J2 Gana: "+p2Wins+" ("+((float)p2Wins/fixedNumberGames)*100+"%)");
 	}
 
 }
