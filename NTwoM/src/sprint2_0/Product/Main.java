@@ -161,8 +161,8 @@ public class Main {
 						game.printGameBoard();
 
 						System.out.println("Numero de movimiento: "+((BotPlayer)p).numberOfMoves);
-											System.out.println("Moves that removed: "+((BotPlayer)p).movesThatRemove);
-						System.out.println("It took: "+ (endTime - startTime)/1000000+" milisegundos");
+											System.out.println("Piezas que fueron eliminadas: "+((BotPlayer)p).movesThatRemove);
+						System.out.println("La partida demoro: "+ (endTime - startTime)/1000000+" milisegundos");
 						srcIndex = move.srcIndex;
 						destIndex = move.destIndex;
 						System.out.println(p.getName()+" mover pieza desde "+srcIndex+" a "+destIndex);
