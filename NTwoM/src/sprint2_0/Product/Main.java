@@ -1,4 +1,4 @@
-package sprint1_0.Product;
+package sprint2_0.Product;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
