@@ -132,7 +132,7 @@ public class Main {
 						System.out.println("It took: "+ (endTime - startTime)/1000000+" miliseconds");
 						srcIndex = move.srcIndex;
 						destIndex = move.destIndex;
-						System.out.println(p.getName()+" moved piece from "+srcIndex+" to "+destIndex);
+						System.out.println(p.getName()+" mover pieza desde "+srcIndex+" a "+destIndex);
 					} else {
 						game.printGameBoard();
 						System.out.println(p.getName()+" es tu turno. Ingresa POS_INI:POS_DEST \n");
@@ -141,7 +141,7 @@ public class Main {
 						String[] positions = userInput.split(":");
 						srcIndex = Integer.parseInt(positions[0]);
 						destIndex = Integer.parseInt(positions[1]);
-						System.out.println("Move piece from "+srcIndex+" to "+destIndex);
+						System.out.println("Mover pieza "+srcIndex+" de "+destIndex);
 					}
 
 					int result;
