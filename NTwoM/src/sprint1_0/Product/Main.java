@@ -35,7 +35,7 @@ public class Main {
 		boolean bothCPU = true;
 		Player p1 = null, p2=null;
 		p1 = new HumanPlayer("Carlitos", Token.PLAYER_1, State_Board.NUM_PIECES_PER_PLAYER);
-		p2 = new HumanPlayer("Kenji", Token.PLAYER_2, State_Board.NUM_PIECES_PER_PLAYER);
+		p2 = new HumanPlayer("Kencito", Token.PLAYER_2, State_Board.NUM_PIECES_PER_PLAYER);
 		System.out.println ("Tablero v0.1 NTwoM: (P1 y P2 predefinidos)");
 		
 		
