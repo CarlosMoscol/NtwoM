@@ -38,7 +38,7 @@ public class Main {
 		p2 = new HumanPlayer("Kencito(O)", Token.PLAYER_2, State_Board.NUM_PIECES_PER_PLAYER);
 		System.out.println ("Tablero v0.1 NTwoM: (P1 y P2 predefinidos)");
 		*/
-		//Reparticion de turnos
+		//Seleccion de jugadores
 		Player p1 = null, p2 = null;
 		boolean bothCPU = true;
 		int numberGames = 0, fixedNumberGames = 0, numberMoves = 0, draws = 0, p1Wins = 0, p2Wins = 0;
