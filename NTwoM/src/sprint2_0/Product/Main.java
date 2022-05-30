@@ -30,6 +30,8 @@ public class Main {
 	}
 	
 	public void createLanGame(int minimaxDepth) throws IOException, GameException {
+		
+		/*
 		int numberGames = 0, fixedNumberGames = 0, numberMoves = 0, draws = 0, p1Wins = 0, p2Wins = 0;
 		String userInput = "";
 		boolean bothCPU = true;
@@ -37,7 +39,8 @@ public class Main {
 		p1 = new HumanPlayer("Carlitos(X)", Token.PLAYER_1, State_Board.NUM_PIECES_PER_PLAYER);
 		p2 = new HumanPlayer("Kencito(O)", Token.PLAYER_2, State_Board.NUM_PIECES_PER_PLAYER);
 		System.out.println ("Tablero v0.1 NTwoM: (P1 y P2 predefinidos)");
-		
+		*/
+
 		
 		if(bothCPU) {
 			System.out.println("Numero de partidas a jugar: ");
