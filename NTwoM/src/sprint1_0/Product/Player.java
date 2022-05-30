@@ -17,7 +17,7 @@ public abstract class Player {
     protected Player(Token player, int numPiecesPerPlayer) throws GameException {
         this();
         if(player != Token.PLAYER_1 && player != Token.PLAYER_2) {
-            throw new GameException(""+getClass().getName()+" - Invalid Player Token: "+player);
+            throw new GameException(""+getClass().getName()+" - Ficha de jugador no valida: "+player);
         } else {
             numPieces = numPiecesPerPlayer;
             playerToken = player;
