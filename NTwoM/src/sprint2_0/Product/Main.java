@@ -15,14 +15,12 @@ public class Main {
 		Main maingame = new Main();
 		maingame.input = new BufferedReader(new InputStreamReader(System.in));
 		
-		System.out.println("(L)OCAL or (N)ETWORK?"); 
+		System.out.println("Para iniciar el juego Escriba (L) o LOCAL"); 
 		String userInput = maingame.input.readLine();
 		userInput = userInput.toUpperCase();
 			
 		if(userInput.compareTo("LOCAL") == 0 || userInput.compareTo("L") == 0) {
 			maingame.createLanGame(9);
-		} else if(userInput.compareTo("") == 0 || userInput.compareTo("N") == 0) {
-			System.out.println("Aun no implementado");
 		} else {
 			System.out.println("Comando Desconocido");
 			System.exit(-1);
@@ -40,32 +38,33 @@ public class Main {
 		p2 = new HumanPlayer("Kencito(O)", Token.PLAYER_2, State_Board.NUM_PIECES_PER_PLAYER);
 		System.out.println ("Tablero v0.1 NTwoM: (P1 y P2 predefinidos)");
 		*/
-		
-		System.out.println("Jugador 1: (H)UMAN or (C)PU?");
-		String userInput = input.readLine();
-		userInput = userInput.toUpperCase();
 		Player p1 = null, p2 = null;
 		boolean bothCPU = true;
 		int numberGames = 0, fixedNumberGames = 0, numberMoves = 0, draws = 0, p1Wins = 0, p2Wins = 0;
 		
-		if(userInput.compareTo("HUMAN") == 0 || userInput.compareTo("H") == 0) {
+		
+		System.out.println("Jugador 1: (H)UMANO or (B)OT?");
+		String userInput = input.readLine();
+		userInput = userInput.toUpperCase();
+		
+		if(userInput.compareTo("HUMANO") == 0 || userInput.compareTo("H") == 0) {
 			p1 = new HumanPlayer("KENCALU", Token.PLAYER_1, State_Board.NUM_PIECES_PER_PLAYER);
 			bothCPU = false;
-		} else if(userInput.compareTo("CPU") == 0 || userInput.compareTo("C") == 0) {
+		} else if(userInput.compareTo("BOT") == 0 || userInput.compareTo("B") == 0) {
 			p1 = new SomeOneBotPlayer(Token.PLAYER_1,State_Board.NUM_PIECES_PER_PLAYER);
 		} else {
 			System.out.println("Comando desconocido");
 			System.exit(-1);
 		}
 		
-		System.out.println("Jugador 2: (H)UMAN or (C)PU?");
+		System.out.println("Jugador 2: (H)UMANO or (B)OT?");
 		userInput = input.readLine();
 		userInput = userInput.toUpperCase();
 		
-		if(userInput.compareTo("HUMAN") == 0 || userInput.compareTo("H") == 0) {
-			p2 = new HumanPlayer("Miguel", Token.PLAYER_2, State_Board.NUM_PIECES_PER_PLAYER);
+		if(userInput.compareTo("HUMANO") == 0 || userInput.compareTo("H") == 0) {
+			p2 = new HumanPlayer("KENCALU_CO", Token.PLAYER_2, State_Board.NUM_PIECES_PER_PLAYER);
 			bothCPU = false;
-		} else if(userInput.compareTo("CPU") == 0 || userInput.compareTo("C") == 0) {
+		} else if(userInput.compareTo("BOT") == 0 || userInput.compareTo("B") == 0) {
 			p2 = new SomeOneBotPlayer(Token.PLAYER_2,State_Board.NUM_PIECES_PER_PLAYER);
 		} else {
 			System.out.println("Comando desconocido");
