@@ -40,7 +40,37 @@ public class Main {
 		p2 = new HumanPlayer("Kencito(O)", Token.PLAYER_2, State_Board.NUM_PIECES_PER_PLAYER);
 		System.out.println ("Tablero v0.1 NTwoM: (P1 y P2 predefinidos)");
 		*/
-
+		
+		System.out.println("Player 1: (H)UMAN or (C)PU?");
+		String userInput = input.readLine();
+		userInput = userInput.toUpperCase();
+		Player p1 = null, p2 = null;
+		boolean bothCPU = true;
+		int numberGames = 0, fixedNumberGames = 0, numberMoves = 0, draws = 0, p1Wins = 0, p2Wins = 0;
+		
+		if(userInput.compareTo("HUMAN") == 0 || userInput.compareTo("H") == 0) {
+			p1 = new HumanPlayer("KENCALU", Token.PLAYER_1, State_Board.NUM_PIECES_PER_PLAYER);
+			bothCPU = false;
+		} else if(userInput.compareTo("CPU") == 0 || userInput.compareTo("C") == 0) {
+			p1 = new SomeOneBotPlayer(Token.PLAYER_1,State_Board.NUM_PIECES_PER_PLAYER);
+		} else {
+			System.out.println("Command unknown");
+			System.exit(-1);
+		}
+		
+		System.out.println("Player 2: (H)UMAN or (C)PU?");
+		userInput = input.readLine();
+		userInput = userInput.toUpperCase();
+		
+		if(userInput.compareTo("HUMAN") == 0 || userInput.compareTo("H") == 0) {
+			p2 = new HumanPlayer("Miguel", Token.PLAYER_2, State_Board.NUM_PIECES_PER_PLAYER);
+			bothCPU = false;
+		} else if(userInput.compareTo("CPU") == 0 || userInput.compareTo("C") == 0) {
+			p2 = new SomeOneBotPlayer(Token.PLAYER_2,State_Board.NUM_PIECES_PER_PLAYER);
+		} else {
+			System.out.println("Command unknown");
+			System.exit(-1);
+		}
 		
 		if(bothCPU) {
 			System.out.println("Numero de partidas a jugar: ");
