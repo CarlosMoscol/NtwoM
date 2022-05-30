@@ -30,7 +30,7 @@ public class Position {
     }
 
     /**
-     * Clears a position and returns the token of the player that was there
+     * Borra una posición y devuelve el token del jugador que estaba allí
      * @return
      */
     public Token setAsUnoccupied() {
