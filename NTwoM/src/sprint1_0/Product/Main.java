@@ -10,21 +10,21 @@ public class Main {
 	public static int totalMoves = 0;
 
 	public static void main(String []args) throws Exception, GameException {
-		System.out.println("Nine Men's Morris starting...");
+		System.out.println("Iniciando NtwoM...");
 		Log.set(Log.LEVEL_ERROR);
 		Main maingame = new Main();
 		maingame.input = new BufferedReader(new InputStreamReader(System.in));
 		
-		System.out.println("(L)OCAL or (N)ETWORK?");
+		System.out.println("(L)OCAL or (N)ETWORK?"); 
 		String userInput = maingame.input.readLine();
 		userInput = userInput.toUpperCase();
 			
 		if(userInput.compareTo("LOCAL") == 0 || userInput.compareTo("L") == 0) {
 			maingame.createLanGame(9);
-		} else if(userInput.compareTo("NETWORK") == 0 || userInput.compareTo("N") == 0) {
+		} else if(userInput.compareTo("") == 0 || userInput.compareTo("N") == 0) {
 			System.out.println("Aun no implementado");
 		} else {
-			System.out.println("UNKNOWN COMMAND");
+			System.out.println("Comando Desconocido");
 			System.exit(-1);
 		}
 	}
@@ -40,7 +40,7 @@ public class Main {
 		
 		
 		if(bothCPU) {
-			System.out.println("Number of games: ");
+			System.out.println("Numero de partidas a jugar: ");
 			userInput = input.readLine();
 			numberGames = Integer.parseInt(userInput.toUpperCase());
 			fixedNumberGames = numberGames;
@@ -72,7 +72,7 @@ public class Main {
 
 					} else {
 						game.printGameBoard();
-						System.out.println(p.getName()+" place piece on: ");
+						System.out.println(p.getName()+" coloca una pieza en la posicion (0 - 23): ");
 						userInput = input.readLine();
 						userInput = userInput.toUpperCase();
 						boardIndex = Integer.parseInt(userInput);
@@ -200,7 +200,7 @@ public class Main {
 			((LanGame)game).setPlayers(p1, p2);
 		}
 		long gamesEnd = System.nanoTime();
-		System.out.println(fixedNumberGames+" games completed in: "+ (gamesEnd - gamesStart)/1000000000+" seconds");
+		System.out.println(fixedNumberGames+" Juegos completados en: "+ (gamesEnd - gamesStart)/1000000000+" seconds");
 		System.out.println("Average number of ply: "+(totalMoves/fixedNumberGames));
 		System.out.println("Draws: "+draws+" ("+((float)draws/fixedNumberGames)*100+"%)");
 		System.out.println("P1 Wins: "+p1Wins+" ("+((float)p1Wins/fixedNumberGames)*100+"%)");

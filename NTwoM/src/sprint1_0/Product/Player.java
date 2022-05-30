@@ -50,7 +50,7 @@ public abstract class Player {
     }
 
     public int raiseNumPiecesOnBoard() {
-        canFly = false; // it's still placing pieces
+        canFly = false; // aun se encuentra colocando piezas
         return ++numPiecesOnBoard;
     }
 
