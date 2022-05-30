@@ -45,7 +45,7 @@ public class BoardTest {
 			board.incNumPiecesOfPlayer(Token.NO_PLAYER);
 			fail("The previous method should have sent an exception");
 		} catch (GameException e) {
-			// expected exception, do nothing
+			// Aqui se espera una excepción, es decir no hace otra acción 
 		}
 	}
 	

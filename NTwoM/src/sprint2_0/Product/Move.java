@@ -11,7 +11,7 @@ public class Move {
 	
 	public Move(int src, int dest, int remove, int type) throws GameException {
 		if(type != PLACING && type != MOVING && type != REMOVING) {
-			throw new GameException(getClass().getName()+" - Invalid Type Of Move");
+			throw new GameException(getClass().getName()+" - Tipo de movimiento Invalido");
 		}
 		this.srcIndex = src;
 		this.destIndex = dest;

@@ -27,7 +27,7 @@ public abstract class BotPlayer extends Player {
 	
 	private void setName() {
 		name = randomNames[rand.nextInt(randomNames.length)];
-		System.out.println("Name of CPU: "+name);
+		System.out.println("El nombre del Bot es: "+name);
 	}
 
 	@Override

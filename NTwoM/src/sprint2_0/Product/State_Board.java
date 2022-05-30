@@ -143,7 +143,7 @@ public class State_Board {
                 boolean p1HasValidMove = false, p2HasValidMove = false;
                 Token player;
 
-                // check if each player has at least one valid move
+                // Reviza si cada jugador tiene al menos un mvimiento valido
                 for(int i = 0; i < Board_GUI.NUM_POSITIONS_OF_BOARD; i++) {
                     Position position = gameBoard.getPosition(i);
                     if((player = position.getPlayerOccupyingIt()) != Token.NO_PLAYER) {
@@ -151,7 +151,7 @@ public class State_Board {
                         for(int j = 0; j < adjacent.length; j++) {
                             Position adjacentPos = gameBoard.getPosition(adjacent[j]);
                             if(!adjacentPos.isOccupied()) {
-                                if(!p1HasValidMove) { // must only change if boolean is false
+                                if(!p1HasValidMove) { //Debera cambiar solo si el boleano es falso
                                     p1HasValidMove = (player == Token.PLAYER_1);
                                 }
                                 if(!p2HasValidMove) {
